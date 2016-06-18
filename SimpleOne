@@ -130,8 +130,12 @@ public class Solution {
 
     public ArrayList<BigInteger> revgcd(ArrayList<ArrayList<BigInteger>> cset){
        ArrayList<ArrayList<BigInteger>> csetc = new ArrayList<ArrayList<BigInteger>>();
-       cset.addAll(csetc);
+       for (ArrayList<BigInteger> iset : cset){
+           csetc.add(new ArrayList<BigInteger>(iset));
+       }
+       //cset.addAll(csetc);
        Collections.reverse(csetc);
+       //System.out.println(csetc.size());
        int c = 0;
        ArrayList<BigInteger> coeff = new ArrayList<BigInteger>();
        if(cset.size()>1){coeff = csetc.get(1);}
@@ -141,6 +145,7 @@ public class Solution {
        for (ArrayList<BigInteger> coeff2 : cset){
           if (c==0){ c++; continue;}
           if (c==1){ c++; continue;}
+          //System.out.println("hit");
           ArrayList<BigInteger> a = new ArrayList<BigInteger>();
           a.add(one); a.add(coeff2.get(0)); a.add(onen.multiply(coeff2.get(1)));
           a.add(coeff2.get(2)); a.add(coeff2.get(3));
@@ -197,14 +202,16 @@ public class Solution {
            c.tandou(p, q, n, out);
            BigInteger a = out[0];
            BigInteger b = out[1];
-           System.out.println(a);
-           System.out.println(b);
+           //System.out.println(a);
+           //System.out.println(b);
            ArrayList<ArrayList<BigInteger>> cset = new ArrayList<ArrayList<BigInteger>>();
-           System.out.println(c.mP);
+           //System.out.println(c.mP);
            c.gcd2(b, c.mP, cset);
-           System.out.println(cset.get(0));
+           //System.out.println(cset.get(0));
            ArrayList<BigInteger> solu = c.revgcd(cset);
-           System.out.println(a.multiply(solu.get(0)));
+           //System.out.println(solu.get(3));
+           //System.out.println(solu.get(2));
+           System.out.println(a.multiply(solu.get(2)));
         }
     }
 }
