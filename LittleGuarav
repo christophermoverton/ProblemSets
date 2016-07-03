@@ -1,7 +1,9 @@
 import java.io.*;
 import java.util.*;
 import java.math.*;
-
+/*  see https://drive.google.com/open?id=1UEBfpZ0a5UONdjEqbM-83Q_SzVEO6g0Pt-bf8zZMQmo  
+for detailed explanation on solution
+*/
 public class Solution {
 
     public static void main(String[] args) {
