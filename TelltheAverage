@@ -1,0 +1,20 @@
+import java.io.*;
+import java.util.*;
+import java.math.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        int Q = sc.nextInt();
+        BigInteger one = new BigInteger("1");
+        BigInteger sum = new BigInteger("1");
+        while(sc.hasNextBigInteger()){
+            sum = sum.multiply((sc.nextBigInteger()).add(one));
+        }
+        sum = sum.subtract(one);
+        sum = sum.mod(new BigInteger("1000000007"));
+        System.out.println(sum);
+    }
+}

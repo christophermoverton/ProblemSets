@@ -1,0 +1,53 @@
+import java.io.*;
+import java.util.*;
+import java.math.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        int Q = sc.nextInt();
+        BigInteger one = new BigInteger("1");
+        BigInteger sum = new BigInteger("0");
+        BigInteger two = new BigInteger("2");
+        BigInteger four = new BigInteger("4");
+        BigInteger three = new BigInteger("3");
+        BigInteger five = new BigInteger("5");
+        BigInteger six = new BigInteger("6");
+        
+        while(sc.hasNextLong()){
+            long N = sc.nextLong();
+            boolean Neven = N%2 == 0;
+            BigInteger p1 = one;
+            if (!Neven){p1 = five;}
+            double Id = Math.log((double) N)/Math.log(2.0);
+            long I = (long) Id;
+            int i = 0;
+            sum = new BigInteger("0");
+            /*
+            while (i < I){
+              double j = 2.0;
+              int k = (int) Math.pow(j,i);
+              sum = sum.add(two.pow(k));
+              i++;
+            }
+            */
+            
+            if (I>=0){
+                sum = sum.add(two);
+                
+            }
+            if (I>=1){
+                sum = sum.add(four);
+                sum = sum.add(six.multiply((BigInteger.valueOf(I)).subtract(one)));
+            }
+            //BigInteger p2 = ((two.pow(I+1)).subtract(one));
+            //sum = p1.multiply(two.multiply(p2));
+            sum = p1.multiply(sum);
+            String str = sum.toString();
+            System.out.println(str.substring(str.length() - 1));
+        }
+
+    }
+}
